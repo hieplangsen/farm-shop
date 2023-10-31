@@ -76,7 +76,7 @@ const handleLogin = async () => {
 											style="transition: all 0.15s ease 0s"
 											disabled
 										>
-											<img alt="..." class="w-5 mr-1" src="src/assets/svg/github.svg" />
+											<!-- <img alt="..." class="w-5 mr-1" src="src/assets/svg/github.svg" /> -->
 											<div>Github</div>
 										</button>
 										<button
@@ -85,7 +85,7 @@ const handleLogin = async () => {
 											disabled
 											style="transition: all 0.15s ease 0s"
 										>
-											<img alt="..." class="w-5 mr-1" src="src/assets/svg/google.svg" />Google
+											<!-- <img alt="..." class="w-5 mr-1" src="src/assets/svg/google.svg" />Google -->
 										</button>
 									</div>
 									<hr class="mt-6 border-b-1 border-gray-400" />

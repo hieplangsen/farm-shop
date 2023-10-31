@@ -74,7 +74,7 @@ getData();
 			<div className="mx-10">
 				<div v-for="(category, index) in data" :key="category.title">
 					<div className="text-lg font-semibold mt-8 flex gap-2">
-						<img v-if="index === 0" className="w-8" src="{Flash}" alt="" />
+						<img v-if="index === 0" className="w-8" src="@/assets/svg/flash.svg" alt="" />
 						{{ category.title }}
 					</div>
 					<div className="flex flex-wrap">

@@ -18,4 +18,5 @@ export interface IProfileResponse {
 	fullName: string;
 	email: string;
 	avatar: string;
+	role: string;
 }

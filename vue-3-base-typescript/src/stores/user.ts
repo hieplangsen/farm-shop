@@ -8,7 +8,7 @@ import { IResponse } from "@/helper/apiHelper";
 
 export const useUserStore = defineStore("user", {
 	state: () => ({
-		userCurrent: { email: "" }
+		userCurrent: { email: "", role: "" }
 	}),
 
 	actions: {
