@@ -1,0 +1,18 @@
+error: 
+BadRequestException: Được sử dụng khi yêu cầu của khách hàng không hợp lệ hoặc thiếu thông tin cần thiết.
+
+UnauthorizedException: Được sử dụng khi yêu cầu yêu cầu xác thực hoặc quyền truy cập và người dùng không được phép.
+
+ForbiddenException: Được sử dụng khi yêu cầu bị từ chối do người dùng không có quyền truy cập.
+
+NotFoundException: Được sử dụng khi tài nguyên không tồn tại.
+
+ConflictException: Được sử dụng khi xảy ra xung đột trong quá trình xử lý yêu cầu, ví dụ: tạo tài khoản với email đã tồn tại.
+
+InternalServerErrorException: Được sử dụng khi xảy ra lỗi không xác định hoặc lỗi hệ thống.
+
+Ngoài ra, bạn cũng có thể tạo các ngoại lệ tùy chỉnh của riêng bạn bằng cách mở rộng từ lớp HttpException 
+hoặc sử dụng các lớp ngoại lệ khác có sẵn trong NestJS như Error, BaseException, vv.
+
+Dưới đây là một ví dụ sử dụng BadRequestException:
+throw new BadRequestException('Invalid request data');
