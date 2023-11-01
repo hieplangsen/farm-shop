@@ -50,7 +50,10 @@ const rateOn = async () => {
 		<div class="flex flex-col gap-2">
 			<textarea v-model="desRate" class="outline-none border border-[#eee] w-[500px] h-[100px] p-2" placeholder="nhập đánh giá" />
 			<!-- <input type="file" /> -->
+			<div v-if="userStore && userStore.userCurrent && Object.keys(userStore.userCurrent).length">
 			<button @click="rateOn" type="button" class="border bg-green-400 p-2 rounded-lg w-[100px] mx-auto">Xác nhận</button>
+			 </div>
+			 <div @click="router.push('/login')" v-else type="button" class="border bg-green-400 p-2 rounded-lg w-[200px] mx-auto flex justify-center text-white cursor-pointer"> Đăng nhập để đánh giá </div>
 		</div>
 	</div>
 	<FooterNotAuth />

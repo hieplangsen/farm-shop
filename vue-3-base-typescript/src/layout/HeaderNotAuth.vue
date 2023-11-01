@@ -5,6 +5,7 @@ import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
 const router = useRouter();
+import {removeAccessToken} from "@/composables/useLocalStorage"
 
 onMounted(async () => {
 	try {
@@ -15,6 +16,12 @@ onMounted(async () => {
 		console.log("1");
 	}
 });
+
+const logoutBtn = () => {
+	removeAccessToken()
+	router.push('/login')
+}
+
 </script>
 
 <template>
@@ -32,12 +39,12 @@ onMounted(async () => {
 			<div className="h-[40px] flex items-center gap-1">
 				<img className="max-h-[40px] w-[30px]" src="@/assets/svg/user.svg" alt="" />
 				<div className="flex flex-col items-center">
-					<div v-if="userStore && userStore.userCurrent && Object.keys(userStore.userCurrent).length" className="cursor-pointer hover:underline" @click="router.push('/login')">
+					<div v-if="userStore && userStore.userCurrent && Object.keys(userStore.userCurrent).length" className="cursor-pointer hover:underline" @click="logoutBtn">
 						{{ userStore.userCurrent.email }}
 					</div>
 					<div v-else @click="router.push('/login')" className="cursor-pointer">Đăng nhập/ Đăng ký</div>
 
-					<div className="cursor-pointer hover:underline">Tài khoản của tôi</div>
+					<div v-if="userStore && userStore.userCurrent && Object.keys(userStore.userCurrent).length" className="cursor-pointer hover:underline"> {{userStore.userCurrent.token}} coin</div>
 				</div>
 			</div>
 			<div className="cursor-pointer hover:underline h-[40px] flex items-center gap-1">

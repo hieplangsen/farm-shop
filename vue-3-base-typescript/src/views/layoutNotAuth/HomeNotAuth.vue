@@ -59,15 +59,15 @@ getData();
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
-					Danh sách đánh giá xấu
+					Từ chối kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
-					Danh sách chờ đánh giá
+				<div @click="router.push('list-pending')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+					Chờ kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
-					Danh sách đã đánh giá
+				<div @click="router.push('list-accept')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+					Đã kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 			</div>
