@@ -24,8 +24,8 @@ export class RateService extends BaseService<Rate> {
     return rate;
   }
 
-  async getAllRate(): Promise<Rate[]> {
-    const Rates = await this.getAll();
+  async getRate(status: object): Promise<Rate[]> {
+    const Rates = await this.get(status);
     return Rates;
   }
 

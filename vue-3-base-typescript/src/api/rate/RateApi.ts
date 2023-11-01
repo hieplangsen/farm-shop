@@ -1,5 +1,5 @@
 import { IDataError } from "@/helper/apiErrorService";
-import { getApi, postApi } from "@/helper/apiHelper";
+import { getApi, postApi, putApi } from "@/helper/apiHelper";
 
 export interface IRateRequest {
 	text: string;
@@ -24,11 +24,21 @@ export const postRateApi = async (rate: IRateRequest) => {
 };
 
 export const getRatePendingApi = async () => {
-	const response = await getApi<IRateResponse[] | IDataError>("rate?state=pending");
+	const response = await getApi<IRateResponse[] | IDataError>("rate?status=pending");
 	return response;
 };
 
 export const getRateSuccessApi = async () => {
-	const response = await getApi<IRateResponse[] | IDataError>("rate?state=accept");
+	const response = await getApi<IRateResponse[] | IDataError>("rate?status=accept");
+	return response;
+};
+
+export const getRateRejectApi = async () => {
+	const response = await getApi<IRateResponse[] | IDataError>("rate?status=reject");
+	return response;
+};
+
+export const updateRateApi = async (rate: IRateRequest) => {
+	const response = await putApi<IRateRequest, IRateResponse | IDataError>("rate", rate);
 	return response;
 };

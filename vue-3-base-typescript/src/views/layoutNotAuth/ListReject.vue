@@ -1,24 +1,22 @@
 <script setup lang="ts">
 import { reactive } from "vue";
-import { useUserStore } from "@/stores/user";
-import { getRatePendingApi, getRateSuccessApi } from "@/api/rate/RateApi";
+import { getRateRejectApi } from "@/api/rate/RateApi";
 import HeaderNotAuth from "@/layout/HeaderNotAuth.vue";
 import FooterNotAuth from "@/layout/FooterNotAuth.vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@/stores/user";
 
 const list = reactive<any>([]);
 const userStore = useUserStore();
+const router = useRouter();
 
 const getDate = async () => {
-	const response = await getRateSuccessApi();
+	const response = await getRateRejectApi();
 	const data: any = response.data;
 	if (response.data) {
 		list.push(...data);
 	}
 };
-
-// const updateStatus = (item: any, status: string) => {
-// 	console.log(item, status);
-// };
 
 getDate();
 </script>
@@ -27,7 +25,7 @@ getDate();
 	<HeaderNotAuth />
 	<div class="flex flex-col justify-center items-center w-full my-10">
 		<div class="max-w-[1000px] min-w-[800px] flex flex-col gap-10">
-			<div class="text-lg font-semibold text-primary">Danh Sách Đánh giá được chấp thuận</div>
+			<div class="text-lg font-semibold text-primary">Danh Sách Reject</div>
 			<div v-for="item in list" :key="item.id" id="accordion-color" data-accordion="collapse" data-active-classes="bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-white">
 				<h2 id="accordion-color-heading-1">
 					<button

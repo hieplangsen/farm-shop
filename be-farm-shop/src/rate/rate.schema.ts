@@ -20,6 +20,16 @@ export class Rate extends BaseSchema {
 
   @Prop()
   status: string;
+
+  @Prop()
+  imageProduct: string;
+
+  @Prop()
+  nameProduct: string;
+
+  @Prop()
+  ownerProduct: string;
+
 }
 
 export const RateSchema = SchemaFactory.createForClass(Rate);

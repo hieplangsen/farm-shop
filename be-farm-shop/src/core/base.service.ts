@@ -16,6 +16,10 @@ export class BaseService<T> {
 		return await this.model.find();
 	}
 
+	async get(field: object): Promise<T[]> {
+		return await this.model.find(field);
+	}
+
 	async getOne(info: object): Promise<T | null> {
 		return await this.model.findOne(info);
 	}

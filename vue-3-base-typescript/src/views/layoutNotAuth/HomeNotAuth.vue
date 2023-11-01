@@ -58,7 +58,7 @@ getData();
 					Quà tặng trái cây
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div @click="router.push('list-reject')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Từ chối kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>

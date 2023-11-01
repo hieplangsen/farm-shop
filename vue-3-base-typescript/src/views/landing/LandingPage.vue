@@ -89,11 +89,11 @@ import Footer from "@/layout/Footer.vue";
 						</div>
 						<div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
 							<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600">
-								<!-- <img
+								<img
 									alt="..."
 									src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80"
 									class="w-full align-middle rounded-t-lg"
-								/> -->
+								/>
 								<blockquote class="relative p-8 mb-4">
 									<svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="absolute left-0 w-full block" style="height: 95px; top: -94px">
 										<polygon points="-30,95 583,95 583,65" class="text-pink-600 fill-current"></polygon>
@@ -117,11 +117,11 @@ import Footer from "@/layout/Footer.vue";
 				<div class="container mx-auto px-4">
 					<div class="items-center flex flex-wrap">
 						<div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-							<!-- <img
+							<img
 								alt="..."
 								class="max-w-full rounded-lg shadow-lg"
 								src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
-							/> -->
+							/>
 						</div>
 						<div class="w-full md:w-5/12 ml-auto mr-auto px-4">
 							<div class="md:pr-12">

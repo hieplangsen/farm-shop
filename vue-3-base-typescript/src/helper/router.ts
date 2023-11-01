@@ -56,6 +56,11 @@ const router = createRouter({
 			path: "/list-accept",
 			name: "list-accept",
 			component: () => import("@/views/layoutNotAuth/ListAccept.vue")
+		},
+		{
+			path: "/list-reject",
+			name: "list-reject",
+			component: () => import("@/views/layoutNotAuth/ListReject.vue")
 		}
 	]
 });

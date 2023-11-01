@@ -24,6 +24,7 @@ export class UsersService extends BaseService<User> {
       createUserDto.password = hash;
       createUserDto.avatar = "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-2048x1949-pq9uiebg.png";
       createUserDto.token = 0;
+      console.log(createUserDto, "createUserDto");
       const user = await this.create(createUserDto);
       return user;
     }
@@ -41,15 +42,8 @@ export class UsersService extends BaseService<User> {
     return user;
   }
 
-  async upToken(id: string): Promise<User> {
-    // const user = await this.update(id, { $inc: { token: 200 } });
-
-		const user = await this.userModel.findByIdAndUpdate(id, { $inc: { token: 200 } }, { new: true });
-    if (user && user.password) {
-      const cloneUser = JSON.parse(JSON.stringify(user));
-      delete cloneUser.password;
-      return cloneUser;
-    }
+  async upToken(email: object) {
+    const user = await this.userModel.findOneAndUpdate(email, { $inc: { token: 200 } }, { new: true });
     return user;
   }
 }

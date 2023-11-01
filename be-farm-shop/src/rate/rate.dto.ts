@@ -10,4 +10,7 @@ export class CreateRateDto {
   status: string;
   updatedAt: Date | null;
   deletedAt: Date | null;
+  imageProduct: string;
+  nameProduct: string;
+  ownerProduct: string;
 }

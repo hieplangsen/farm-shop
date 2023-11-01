@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { reactive } from "vue";
-import { getRatePendingApi } from "../../api/rate/RateApi";
+import { getRatePendingApi, updateRateApi } from "@/api/rate/RateApi";
 import HeaderNotAuth from "@/layout/HeaderNotAuth.vue";
 import FooterNotAuth from "@/layout/FooterNotAuth.vue";
 import { useRouter } from "vue-router";
+import { updateTokenApi } from "../../api/user/userApi";
 import { useUserStore } from "@/stores/user";
 
 const list = reactive<any>([]);
@@ -18,9 +19,15 @@ const getDate = async () => {
 	}
 };
 
-const updateStatus = (item: any, status: string) => {
-	console.log(item, status);
-	router.push("/list-accept");
+const updateStatus = async (item: any, status: string) => {
+	item.status = status;
+	const response: any = await updateRateApi(item);
+	if (response && response.data.status === "accept") {
+		const res: any = await updateTokenApi(item.user);
+		if (res && res.data.token) {
+			router.push("/list-accept");
+		}
+	}
 };
 
 getDate();
@@ -38,7 +45,7 @@ getDate();
 						class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
 						data-accordion-target="#accordion-color-body-1"
 					>
-						<span>{{ item.user }}</span>
+						<span>Người đánh giá: {{ item.user }}</span>
 						<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
 						</svg>
@@ -51,7 +58,7 @@ getDate();
 						class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
 						data-accordion-target="#accordion-color-body-2"
 					>
-						<span>{{ item.text }}</span>
+						<span>Nội dung: {{ item.text }}</span>
 						<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
 						</svg>
@@ -61,15 +68,25 @@ getDate();
 					<button
 						type="button"
 						class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
-						data-accordion-target="#accordion-color-body-3"
 					>
-						<span>{{ item.status }}</span>
+						<span>Trạng thái: {{ item.status }}</span>
 						<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
 						</svg>
 					</button>
 				</h2>
-				<div v-if="userStore.userCurrent.role === 'admin'" class="flex">
+				<h2 id="accordion-color-heading-3">
+					<button
+						type="button"
+						class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-blue-100 dark:hover:bg-gray-800"
+					>
+						<span>Shop: {{ item.ownerProduct }}</span>
+						<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+						</svg>
+					</button>
+				</h2>
+				<div v-if="userStore.userCurrent && userStore.userCurrent.role === 'admin'" class="flex">
 					<button
 						type="button"
 						class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-800 dark:border-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-gray-800"
