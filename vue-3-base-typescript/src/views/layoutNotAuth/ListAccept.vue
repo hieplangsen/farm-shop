@@ -13,6 +13,7 @@ const getDate = async () => {
 	const data: any = response.data;
 	if (response.data) {
 		list.push(...data);
+		list.reverse();
 	}
 };
 
