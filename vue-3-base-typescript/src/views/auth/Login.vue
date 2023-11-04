@@ -58,7 +58,7 @@ const handleLogin = async () => {
 			<section class="absolute w-full h-full">
 				<div
 					class="absolute top-0 w-full h-full bg-gray-900"
-					style="background-size: 100%; background-repeat: no-repeat; background-image: url('src/assets/img/register_bg_2.png');"
+					style="background-size: 100%; background-repeat: no-repeat; background-image: url('/img/register_bg_2.png');"
 				></div>
 				<div class="container mx-auto px-4 h-full">
 					<div class="flex content-center items-center justify-center h-full">
