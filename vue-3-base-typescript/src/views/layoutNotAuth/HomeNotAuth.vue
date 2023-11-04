@@ -29,7 +29,7 @@ const getData = async () => {
 
 	data.push(
 		...[
-			{ title: "FLASH SALE", data: flash },
+			{ title: "FLASH", data: flash },
 			{ title: "Trái cây tươi", data: tuoi },
 			{ title: "Quà tặng", data: tang }
 		]
@@ -45,7 +45,7 @@ getData();
 				<div className="text-xl font-semibold text-primary cursor-pointer uppercase hover:underline">Trang chủ /</div>
 				<div className="text-xl font-semibold text-primary pl-2 cursor-pointer uppercase hover:underline">Sản phẩm</div>
 			</div>
-			<div className="mt-6 flex justify-between">
+			<div className="mt-6 flex justify-between gap-8">
 				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Sản phẩm
 					<img className="w-4" src="@/assets/svg/down.svg" />
@@ -58,16 +58,17 @@ getData();
 					Quà tặng trái cây
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div @click="router.push('list-reject')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
-					Từ chối kiểm duyệt
-					<img className="w-4" src="@/assets/svg/down.svg" />
-				</div>
+				
 				<div @click="router.push('list-pending')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Chờ kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 				<div @click="router.push('list-accept')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Đã kiểm duyệt
+					<img className="w-4" src="@/assets/svg/down.svg" />
+				</div>
+				<div @click="router.push('list-reject')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+					Từ chối kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 			</div>
