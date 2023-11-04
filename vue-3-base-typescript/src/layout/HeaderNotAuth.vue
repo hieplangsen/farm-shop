@@ -25,7 +25,7 @@ const logoutBtn = () => {
 </script>
 
 <template>
-	<div className="h-[80px] border-b border-[#b8b8b8] flex justify-between px-5 items-center">
+	<div className="h-[80px] border-b flex justify-between px-5 items-center">
 		<div @click="router.push('/home')" className="cursor-pointer h-full flex flex-col items-center justify-center">
 			<img className="h-10 w-10" src="@/assets/img/logo.png" alt="" />
 			<div className="text-primary font-semibold">FARMTRADE</div>

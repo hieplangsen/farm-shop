@@ -41,48 +41,47 @@ getData();
   <HeaderNotAuth />
 	<div className="min-h-[500px] px-[100px] duration-200">
 		<div>
-			<div className="mt-6 flex">
-				<div className="text-xl font-semibold text-primary cursor-pointer uppercase hover:underline">Trang chủ /</div>
-				<div className="text-xl font-semibold text-primary pl-2 cursor-pointer uppercase hover:underline">Sản phẩm</div>
-			</div>
 			<div className="mt-6 flex justify-between gap-8">
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Sản phẩm
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Trái cây tươi hằng ngày
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Quà tặng trái cây
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 				
-				<div @click="router.push('list-pending')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div @click="router.push('list-pending')" className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Chờ kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div @click="router.push('list-accept')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div @click="router.push('list-accept')" className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Đã kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
-				<div @click="router.push('list-reject')" className="text-base font-semibold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
+				<div @click="router.push('list-reject')" className="text-base font-bold text-primary cursor-pointer uppercase hover:underline flex items-center gap-2">
 					Từ chối kiểm duyệt
 					<img className="w-4" src="@/assets/svg/down.svg" />
 				</div>
 			</div>
+			<div class="mt-4">
+				<img class="rounded-lg" src="@/assets/img/home.png" alt="">
+			</div>
 			<div className="mx-10">
-				<div v-for="(category, index) in data" :key="category.title">
-					<div className="text-lg font-semibold mt-8 flex gap-2">
+				<div v-for="(category, index) in data" :key="category.title" class="border-b">
+					<div className="text-lg font-semibold mt-8 mb-6 flex gap-2">
 						<img v-if="index === 0" className="w-8" src="@/assets/svg/flash.svg" alt="" />
 						{{ category.title }}
 					</div>
-					<div className="flex flex-wrap">
+					<div className="flex flex-wrap gap-2">
 						<div
 							v-for="item in category.data"
 							:key="item._id"
-							className="hover:bg-gray-100 w-1/4 duration-300 cursor-pointer h-[300px] rounded-lg flex flex-col items-center justify-center"
+							className="hover:bg-gray-100 w-[calc(25%-6px)] duration-300 cursor-pointer h-[300px] rounded-lg flex flex-col items-center justify-center bg-slate-50"
 							@click="router.push(`/detail/${item._id}`)"
 						>
 							<img className="rounded-sm object-cover max-w-[250px] max-h-[200px]" :src="item.imageUrl" alt="" />
